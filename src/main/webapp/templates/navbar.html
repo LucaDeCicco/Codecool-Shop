@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="copy">
+    <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid" style="background-color: rgba(175,220,236,0.79);">
+            <a class="navbar-brand navCss" href="/"><h5>Home</h5></a>
+            <a class="navbar-brand navCss" href="#" id="topNews"><h5>Men's Perfume</h5></a>
+            <a class="navbar-brand navCss" href="#" id="newest"><h5>Women's Perfume</h5></a>
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLinkPrice" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #19276e">
+                    Sort by price
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkPrice">
+                    <a class="dropdown-item" href="#">Low to High</a>
+                    <a class="dropdown-item" href="#">High to Low</a>
+                </div>
+            </div>
+            <div class="dropdown show">
+                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLinkBrand" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="background-color: #19276e">
+                    Select Brand
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkBrand">
+                    <a class="dropdown-item" href="#">ARMANI</a>
+                    <a class="dropdown-item" href="#">BURBERRY</a>
+                    <a class="dropdown-item" href="#">BVLGARI</a>
+                    <a class="dropdown-item" href="#">CALVIN KLEIN</a>
+                    <a class="dropdown-item" href="#">DIOR</a>
+                    <a class="dropdown-item" href="#">DOLCE & GABBANA</a>
+                    <a class="dropdown-item" href="#">GIVENCHY</a>
+                    <a class="dropdown-item" href="#">GUCCI</a>
+                    <a class="dropdown-item" href="#">JEAN PAUL GAULTIER</a>
+                    <a class="dropdown-item" href="#">LANCOME</a>
+                    <a class="dropdown-item" href="#">PACO RABANNE</a>
+                    <a class="dropdown-item" href="#">VERSACE</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>
