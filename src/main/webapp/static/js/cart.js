@@ -1,3 +1,5 @@
+
+
 const deleteFromCartBtnHandler = () => {
     let deleteItemButtons = document.querySelectorAll(".deleteFromCart")
     for (const deleteItemBtn of deleteItemButtons) {
@@ -52,6 +54,11 @@ const increaseQuantityBtnHandler = () => {
                     quantity.innerHTML = newQuantity;
                 }
             }
+            let displayTotal = document.getElementById("total")
+            displayTotal.innerHTML=""
+            let response = await fetch("/api/getTotal")
+            const total = await response.json();
+            displayTotal.innerHTML = total;
         })
     }
 }
@@ -97,6 +104,11 @@ const decreaseQuantityBtnHandler = () => {
                     }
                 }
             }
+            let displayTotal = document.getElementById("total")
+            displayTotal.innerHTML=""
+            let response = await fetch("/api/getTotal")
+            const total = await response.json();
+            displayTotal.innerHTML = total;
         })
     }
 }

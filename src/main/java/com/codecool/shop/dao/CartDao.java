@@ -16,4 +16,6 @@ public interface CartDao {
 
     List<Item> getAll();
 
+    double calculateTotal();
+
 }

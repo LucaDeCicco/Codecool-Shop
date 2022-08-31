@@ -15,9 +15,18 @@ public class CartDaoMem implements CartDao {
 
     private List<Item> data = new ArrayList<>();
 
+
     private static CartDaoMem instance = null;
 
     public CartDaoMem() {
+    }
+
+    public double calculateTotal(){
+        double total = 0;
+        for (Item item : data) {
+            total += item.getProduct().getPriceValue()*item.getQuantity();
+        }
+        return total;
     }
 
     public static CartDaoMem getInstance() {
