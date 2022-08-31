@@ -32,7 +32,7 @@ public class CartDaoMem implements CartDao {
     public void add(Item item) {
         boolean addedItem = false;
         for (Item prod : data) {
-            if (prod.getId() == item.getProductId()){
+            if (prod.getProductId() == item.getProductId()){
                 prod.setQuantity(prod.getQuantity()+1);
                 addedItem = true;
             }
@@ -41,6 +41,18 @@ public class CartDaoMem implements CartDao {
             item.setId(data.size() + 1);
             data.add(item);
         }
+    }
+
+    public void deleteFromCart(Item item){
+        for (Item prod : data) {
+            if (prod.getProductId() == item.getProductId()){
+                prod.setQuantity(prod.getQuantity()-1);
+            }
+            if (prod.getQuantity()==0){
+                data.remove(item);
+            }
+        }
+
     }
 
     @Override

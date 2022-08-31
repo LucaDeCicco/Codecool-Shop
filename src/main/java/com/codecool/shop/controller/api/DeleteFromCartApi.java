@@ -18,14 +18,16 @@ import java.util.Arrays;
 import java.util.List;
 
 
-@WebServlet(name = "AddToCartServlet", urlPatterns = {"/api/addToCart"}, loadOnStartup = 1)
-public class AddToCartApi extends HttpServlet {
+@WebServlet(name = "DeleteFromCartServlet", urlPatterns = {"/api/deleteFromCart"}, loadOnStartup = 1)
+public class DeleteFromCartApi extends HttpServlet {
+
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        ProductDaoMem productDaoMem = ProductDaoMem.getInstance();
+        System.out.println("deleteFromCartApi");
+
         CartDaoMem cartDataStore = CartDaoMem.getInstance();
 
-        List<Product> allProducts = productDaoMem.getAll();
+        List<Item> cartProducts = cartDataStore.getAll();
 
         StringBuffer buffer = new StringBuffer();
         String line;
@@ -40,13 +42,11 @@ public class AddToCartApi extends HttpServlet {
         String bufferID = buffer.substring(7, 8);
         String bufferQuantity = buffer.substring(21, 22);
 
-        for (Product product : allProducts) {
-            if (product.getId()==Integer.parseInt(bufferID)){
-                Item item = new Item(product, Integer.parseInt(bufferQuantity));
-                cartDataStore.add(item);
+        for (Item product : cartProducts) {
+            if (product.getProductId()==Integer.parseInt(bufferID)){
+                cartDataStore.deleteFromCart(product);
             }
         }
-
 
 
         response.setContentType("application/json");

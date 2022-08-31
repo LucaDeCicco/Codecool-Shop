@@ -27,22 +27,14 @@ const addCartButtonsHandler = () => {
     }
 }
 
-const cartBtnHandler = () => {
-    let cartBtn = document.querySelector(".cartBtn")
-    cartBtn.addEventListener("click", () => {
-        console.log("test")
-        let page = document.getElementById("mainDiv");
-        page.innerHTML = "";
-        page.innerHTML = `<div th:replace="viewCart.html :: copy"></div>`;
-    })
-}
+
 
 
 
 const init = () => {
     proba();
     addCartButtonsHandler()
-    cartBtnHandler()
+
 }
 
 
