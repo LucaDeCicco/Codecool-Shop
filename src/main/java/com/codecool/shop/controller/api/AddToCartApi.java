@@ -43,7 +43,12 @@ public class AddToCartApi extends HttpServlet {
         for (Product product : allProducts) {
             if (product.getId()==Integer.parseInt(bufferID)){
                 Item item = new Item(product, Integer.parseInt(bufferQuantity));
-                cartDataStore.add(item);
+                if (cartDataStore.getAll().contains(item)){
+                    cartDataStore.find(item.getProductId()).setQuantity(cartDataStore.find(item.getId()).getQuantity()+1);
+                }
+                else{
+                    cartDataStore.add(item);
+                }
             }
         }
 
