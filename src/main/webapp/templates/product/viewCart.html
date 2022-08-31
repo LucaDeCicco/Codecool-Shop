@@ -33,11 +33,11 @@
 <body>
 <div id="mainDiv" >
     <h1 STYLE="text-align: center">CART</h1>
-    <div class="col-xs-6">
+
         <a class="btn btn-secondary btn-sm btn-block" href="/">
             <span class="glyphicon glyphicon-share-alt"></span> Continue shopping
         </a>
-    </div>
+
     <div id="products" class="row">
         <div th:if="${cart.size() > 0}">
             <div class="col col-sm-12 col-md-6 col-lg-4" th:each="item,iterStat : ${cart}" th:data-quantity="${item.getQuantity()}" th:data-id="${item.getProductId()}">
@@ -53,6 +53,13 @@
                         </div>
                         <div class="card-text">
                             <a class="btn btn-success deleteFromCart" th:data-id="${item.getProductId()}" STYLE="color: red">Delete</a>
+                            <p>
+                                Quantity :
+                                <a class="btn decreaseQuantity" th:data-id="${item.getProductId()}" STYLE="color: red">-</a>
+                                <small class="quantity" th:text="${item.getQuantity()}" th:data-id="${item.getProductId()}"></small>
+                                <a class="btn increaseQuantity" th:data-id="${item.getProductId()}" STYLE="color: green">+</a>
+                            </p>
+
                         </div>
                     </div>
                 </div>
