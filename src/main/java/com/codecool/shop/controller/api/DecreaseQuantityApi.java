@@ -23,7 +23,6 @@ public class DecreaseQuantityApi extends HttpServlet {
     @Override
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
-        System.out.println("RAHAT");
         CartDaoMem cartDataStore = CartDaoMem.getInstance();
 
         List<Item> cartProducts = cartDataStore.getAll();
@@ -42,8 +41,15 @@ public class DecreaseQuantityApi extends HttpServlet {
         String bufferQuantity = buffer.toString().split("\"")[7];
 
 
+        System.out.println(buffer);
+        System.out.println("BufferID");
+        System.out.println(bufferID);
+        System.out.println("bufferQuantity");
+        System.out.println(bufferQuantity);
+
+
         for (Item item : cartProducts) {
-            if (item.getId()==Integer.parseInt(bufferID)){
+            if (item.getProductId()==Integer.parseInt(bufferID)){
                 item.setQuantity(Integer.parseInt(bufferQuantity));
             }
         }
