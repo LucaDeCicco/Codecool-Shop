@@ -53,7 +53,7 @@ const generateInnerContainer = (product) => {
                     </div>
                     <div class="card-body">
                         <div class="card-text">
-                            <p class="lead">${product.defaultPrice}</p>
+                            <p class="lead">${product.defaultPrice} ${product.defaultCurrency}</p>
                         </div>
                         <div class="card-text">
                             <a class="btn btn-success addToCart" href="#" data-id="${product.id}">Add to cart</a>
