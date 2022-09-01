@@ -1,5 +1,8 @@
 package com.codecool.shop.model;
 
+import com.codecool.shop.dao.implementation.CartDaoMem;
+import com.codecool.shop.dao.implementation.ProductDaoMem;
+
 public class Client {
  private String name;
  private String email;
@@ -9,7 +12,16 @@ public class Client {
  private String zipCode;
  private String Address;
 
+
+ private static Client instance = null;
  public Client() {
+ }
+
+ public static Client getInstance() {
+  if (instance == null) {
+   instance = new Client();
+  }
+  return instance;
  }
 
  public String getName() {
