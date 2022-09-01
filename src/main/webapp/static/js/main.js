@@ -47,7 +47,7 @@ const generateInnerContainer = (product) => {
                 <div class="card">
                     <img style="width: 100px; height: 250px" 
                     src="/static/img/product_${product.id}.jpg" alt="" />
-                    <div class="card-header">
+                    <div class="card-header" style="width: 300px; height: 200px">
                         <h4 class="card-title">${product.name}</h4>
                         <p class="card-text">${product.description}</p>
                     </div>
@@ -60,6 +60,7 @@ const generateInnerContainer = (product) => {
                         </div>
                     </div>
                 </div>
+                <br>
             </div>`;
 }
 
