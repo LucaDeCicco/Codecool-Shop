@@ -51,7 +51,7 @@ public class Initializer implements ServletContextListener {
         productDataStore.add(new Product("Versace Eros", new BigDecimal("45"), "EUR", "Versace Eros is a fragrance for a strong, passionate man, who is master of himself.", men, versace));
 
         productDataStore.add(new Product("Million Female", new BigDecimal("53"), "EUR", "Best price", women, paccoRabanne));
-        productDataStore.add(new Product("Pacco Rabanne Scandal", new BigDecimal("78"), "EUR", "Fantastic price.", women, jeanPaulGaultier));
+        productDataStore.add(new Product("Pacco Rabanne Scandal", new BigDecimal("12"), "EUR", "Fantastic price.", women, jeanPaulGaultier));
 
     }
 }

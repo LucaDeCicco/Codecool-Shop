@@ -67,6 +67,29 @@ const generateInnerContainer = (product) => {
             </div>`;
 }
 
+const sortWomenPerfume = () => {
+    let menPerfumeBtn = document.getElementById("womenPerfume")
+    menPerfumeBtn.addEventListener("click", async () => {
+        let criteria = "Women"
+        const dataToBePosted = {
+            criteria: criteria
+        };
+
+        let response = await fetch("/api/filter", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dataToBePosted)
+        });
+
+
+        const filteredProducts = await response.json();
+        console.log(filteredProducts)
+        await generateHtmlContainerFiltered(filteredProducts)
+        await addCartButtonsHandler()
+    })
+}
 
 const addCartButtonsHandler = () => {
     let addToCartButtons = document.querySelectorAll(".addToCart")
@@ -95,6 +118,7 @@ const init = () => {
     proba();
     addCartButtonsHandler()
     sortMenPerfume()
+    sortWomenPerfume()
 
 }
 
