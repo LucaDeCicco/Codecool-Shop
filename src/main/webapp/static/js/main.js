@@ -25,6 +25,7 @@ const sortMenPerfume = () => {
         const filteredProducts = await response.json();
         console.log(filteredProducts)
         await generateHtmlContainerFiltered(filteredProducts)
+        await addCartButtonsHandler()
     })
 }
 
@@ -36,7 +37,7 @@ const generateHtmlContainerFiltered = (filteredProducts) => {
         dynamicCards+=generateInnerContainer(product);
     }
     htmlContainer.innerHTML = `
-        <div class="container">
+    <div class="container">
         <div id="products" class="row">
             ${dynamicCards}
         </div>
