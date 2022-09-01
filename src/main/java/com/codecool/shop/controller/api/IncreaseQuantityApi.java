@@ -39,12 +39,6 @@ public class IncreaseQuantityApi extends HttpServlet {
         String bufferID = buffer.substring(7, 8);
         String bufferQuantity = buffer.substring(22,23);
 
-        System.out.println(buffer);
-
-        System.out.println("BUFFER ID CACACACACA");
-        System.out.println(bufferID);
-        System.out.println("BUFFER QUANTITY CACACACACAC");
-        System.out.println(bufferQuantity);
 
         for (Item item : cartProducts) {
             if (item.getId()==Integer.parseInt(bufferID)){

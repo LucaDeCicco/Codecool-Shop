@@ -26,6 +26,7 @@ public class AddToCartApi extends HttpServlet {
         CartDaoMem cartDataStore = CartDaoMem.getInstance();
 
         List<Product> allProducts = productDaoMem.getAll();
+        List<Item> cart = cartDataStore.getAll();
 
         StringBuffer buffer = new StringBuffer();
         String line;
@@ -39,21 +40,31 @@ public class AddToCartApi extends HttpServlet {
         }
         String bufferID = buffer.substring(7, 8);
         String bufferQuantity = buffer.substring(21, 22);
-
+        System.out.println("addToCart");
+        boolean added = false;
         for (Product product : allProducts) {
             if (product.getId()==Integer.parseInt(bufferID)){
-                Item item = new Item(product, Integer.parseInt(bufferQuantity));
-                if (cartDataStore.getAll().contains(item)){
-                    cartDataStore.find(item.getProductId()).setQuantity(cartDataStore.find(item.getId()).getQuantity()+1);
+                if (cart.size()>0){
+                    for (Item item : cart) {
+                        if (item.getProductId()== product.getId()){
+                            added = true;
+                            item.setQuantity(item.getQuantity()+1);
+                            System.out.println("e ok");
+                        }
+                        else {
+                            System.out.println("nu e ok");
+                        }
+                    }
                 }
-                else{
+
+                if (!added){
+                    Item item = new Item(product, Integer.parseInt(bufferQuantity));
                     cartDataStore.add(item);
                 }
             }
         }
-
-
-
+        System.out.println("cart cart cart");
+        log(String.valueOf(cart));
         response.setContentType("application/json");
         String dataToRespond = "{\"id\":15,\"result\":\"SUCCESS\"}";
         PrintWriter out = response.getWriter();

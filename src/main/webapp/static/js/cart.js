@@ -11,7 +11,7 @@ const deleteFromCartBtnHandler = () => {
                 id: productId,
                 quantity: 1,
             };
-            const response = await fetch("/api/deleteFromCart", {
+            const response1 = await fetch("/api/deleteFromCart", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -25,6 +25,11 @@ const deleteFromCartBtnHandler = () => {
                     card.innerHTML=""
                 }
             }
+            let displayTotal = document.getElementById("total")
+            displayTotal.innerHTML=""
+            let response = await fetch("/api/getTotal")
+            const total = await response.json();
+            displayTotal.innerHTML = total;
         })
     }
 

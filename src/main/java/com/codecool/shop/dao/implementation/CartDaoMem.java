@@ -55,11 +55,11 @@ public class CartDaoMem implements CartDao {
     public void deleteFromCart(Item item){
         for (Item prod : data) {
             if (prod.getProductId() == item.getProductId()){
-                prod.setQuantity(prod.getQuantity()-1);
-            }
-            if (prod.getQuantity()==0){
                 data.remove(item);
             }
+//            if (prod.getQuantity()==0){
+//                data.remove(item);
+//            }
         }
 
     }
