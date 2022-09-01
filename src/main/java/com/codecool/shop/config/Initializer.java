@@ -27,18 +27,24 @@ public class Initializer implements ServletContextListener {
 
 
         //setting up a new supplier
-        Supplier amazon = new Supplier("Amazon", "Digital content and services");
-        supplierDataStore.add(amazon);
-        Supplier lenovo = new Supplier("Lenovo", "Computers");
-        supplierDataStore.add(lenovo);
+        //setting up a new supplier
+        Supplier dior = new Supplier("Dior", "An internationally renowned brand since 1946, the French fashion house acclaimed for its elegance and timeless femininity.");
+        supplierDataStore.add(dior);
+        Supplier versace = new Supplier("Versace", "The Versace name was born as an audacious and unapologetic brand, fusing street style with high fashion to create bombastic, avant-garde designs.");
+        supplierDataStore.add(versace);
+        Supplier paccoRabanne = new Supplier("Pacco Rabanne", "Francisco Rabaneda Cuervo (born 18 February 1934), more commonly known under the pseudonym of Paco Rabanne, is a Spanish fashion designer who became known as an enfant terrible of the 1960s French fashion world.");
+        supplierDataStore.add(paccoRabanne);
+        Supplier jeanPaulGaultier = new Supplier("Jean Paul Gaultier", "Jean Paul Gaultier, (born April 24, 1952, Arcueil, France), French fashion designer whose iconoclastic collections in the late 20th and early 21st centuries celebrated androgyny, blended street styles with haute couture, and juxtaposed other seemingly contradictory cultural symbols.");
+        supplierDataStore.add(jeanPaulGaultier);
+
 
         //setting up a new product category
-        ProductCategory tablet = new ProductCategory("Tablet", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
-        productCategoryDataStore.add(tablet);
+        ProductCategory men = new ProductCategory("Men", "Perfume", "Perfumes can be defined as substances that emit and diffuse a pleasant and fragrant odor.");
+        productCategoryDataStore.add(men);
 
         //setting up products and printing it
-        productDataStore.add(new Product("Amazon Fire", new BigDecimal("49.9"), "USD", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", tablet, amazon));
-        productDataStore.add(new Product("Lenovo IdeaPad Miix 700", new BigDecimal("479"), "USD", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", tablet, lenovo));
-        productDataStore.add(new Product("Amazon Fire HD 8", new BigDecimal("89"), "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", tablet, amazon));
+        productDataStore.add(new Product("Sauvage Dior", new BigDecimal("49.9"), "EUR", "Fantastic price.", men, dior));
+        productDataStore.add(new Product("Pacco Rabanne Million", new BigDecimal("52"), "EUR", "Best price", men, paccoRabanne));
+        productDataStore.add(new Product("Versace Eros", new BigDecimal("45"), "EUR", "Versace Eros is a fragrance for a strong, passionate man, who is master of himself.", men, versace));
     }
 }

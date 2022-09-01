@@ -7,7 +7,6 @@ const choosePaymentMethodHandler = () => {
         let cardMethod = document.getElementById("cardMethodForm")
         let payPalMethod = document.getElementById("payPalMethodForm")
 
-        console.log("click1")
         cardMethod.style.display = 'block'
         payPalMethod.style.display = 'none'
     })
@@ -16,7 +15,6 @@ const choosePaymentMethodHandler = () => {
         let payPalMethod = document.getElementById("payPalMethodForm")
         let cardMethod = document.getElementById("cardMethodForm")
 
-        console.log("click2")
         payPalMethod.style.display = 'block'
         cardMethod.style.display = 'none'
     })

@@ -38,9 +38,9 @@ public class AddToCartApi extends HttpServlet {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        System.out.println(buffer);
         String bufferID = buffer.substring(7, 8);
         String bufferQuantity = buffer.substring(21, 22);
-        System.out.println("addToCart");
         boolean added = false;
         for (Product product : allProducts) {
             if (product.getId()==Integer.parseInt(bufferID)){

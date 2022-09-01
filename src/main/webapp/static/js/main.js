@@ -15,7 +15,7 @@ const addCartButtonsHandler = () => {
                 id: productId,
                 quantity: 1,
             };
-            const response = await fetch("/api/addToCart", {
+            await fetch("/api/addToCart", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
