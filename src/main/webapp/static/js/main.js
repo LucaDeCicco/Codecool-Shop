@@ -1,8 +1,5 @@
 // let URL_API = "localhost:8888";
 
-const proba = () => {
-    console.log("proba");
-}
 
 const sortMenPerfume = () => {
     let menPerfumeBtn = document.getElementById("menPerfume")
@@ -115,7 +112,6 @@ const addCartButtonsHandler = () => {
 
 
 const init = () => {
-    proba();
     addCartButtonsHandler()
     sortMenPerfume()
     sortWomenPerfume()

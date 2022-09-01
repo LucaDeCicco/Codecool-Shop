@@ -36,8 +36,8 @@ public class DecreaseQuantityApi extends HttpServlet {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        String bufferID = buffer.substring(7, 8);
-        String bufferQuantity = buffer.substring(22,23);
+        String bufferID = buffer.toString().split("\"")[3];
+        String bufferQuantity = buffer.toString().split("\"")[6].split(":")[1].split("}")[0];
 
 
         for (Item item : cartProducts) {

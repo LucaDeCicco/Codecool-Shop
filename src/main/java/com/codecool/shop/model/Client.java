@@ -12,6 +12,9 @@ public class Client {
  private String zipCode;
  private String Address;
 
+ private CreditCard card;
+
+ private PayPal payPal = null;
 
  private static Client instance = null;
  public Client() {
@@ -78,5 +81,21 @@ public class Client {
 
  public void setAddress(String address) {
   Address = address;
+ }
+
+ public void setCard(CreditCard card) {
+  this.card = card;
+ }
+
+ public CreditCard getCard() {
+  return card;
+ }
+
+ public void setPayPal(PayPal payPal) {
+  this.payPal = payPal;
+ }
+
+ public PayPal getPayPal() {
+  return payPal;
  }
 }
