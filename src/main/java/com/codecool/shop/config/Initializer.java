@@ -42,9 +42,16 @@ public class Initializer implements ServletContextListener {
         ProductCategory men = new ProductCategory("Men", "Perfume", "Perfumes can be defined as substances that emit and diffuse a pleasant and fragrant odor.");
         productCategoryDataStore.add(men);
 
+        ProductCategory women = new ProductCategory("Women", "Perfume", "Perfumes can be defined as substances that emit and diffuse a pleasant and fragrant odor.");
+        productCategoryDataStore.add(women);
+
         //setting up products and printing it
         productDataStore.add(new Product("Sauvage Dior", new BigDecimal("49.9"), "EUR", "Fantastic price.", men, dior));
         productDataStore.add(new Product("Pacco Rabanne Million", new BigDecimal("52"), "EUR", "Best price", men, paccoRabanne));
         productDataStore.add(new Product("Versace Eros", new BigDecimal("45"), "EUR", "Versace Eros is a fragrance for a strong, passionate man, who is master of himself.", men, versace));
+
+        productDataStore.add(new Product("Million Female", new BigDecimal("53"), "EUR", "Best price", women, paccoRabanne));
+        productDataStore.add(new Product("Pacco Rabanne Scandal", new BigDecimal("78"), "EUR", "Fantastic price.", women, jeanPaulGaultier));
+
     }
 }

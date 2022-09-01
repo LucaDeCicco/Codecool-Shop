@@ -9,15 +9,15 @@ const processingCredentials = () => {
         let zipCode = document.getElementById("zipCode").value
         let address = document.getElementById("address").value.replace(",","");
 
-        const dataToBePosted = {
-            name: name,
-            email: email,
-            phoneNumber: phoneNumber,
-            country: country,
-            city: city,
-            zipCode: zipCode,
-            address: address
-        };
+            const dataToBePosted = {
+                name: name,
+                email: email,
+                phoneNumber: phoneNumber,
+                country: country,
+                city: city,
+                zipCode: zipCode,
+                address: address
+            };
         const response1 = await fetch("/api/setCredentials", {
             method: 'POST',
             headers: {
