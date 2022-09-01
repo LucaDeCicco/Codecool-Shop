@@ -4,7 +4,6 @@
 const sortMenPerfume = () => {
     let menPerfumeBtn = document.getElementById("menPerfume")
     menPerfumeBtn.addEventListener("click", async () => {
-        console.log("clickedcaca")
         let criteria = "Men"
         const dataToBePosted = {
             criteria: criteria

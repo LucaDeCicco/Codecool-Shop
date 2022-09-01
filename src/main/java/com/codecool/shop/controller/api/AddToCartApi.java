@@ -63,7 +63,10 @@ public class AddToCartApi extends HttpServlet {
                 }
             }
         }
-        System.out.println("cart cart cart");
+
+        System.out.println("futu-i mama ");
+        System.out.println(cartDataStore.getAll());
+
         log(String.valueOf(cart));
         response.setContentType("application/json");
         String dataToRespond = "{\"id\":15,\"result\":\"SUCCESS\"}";

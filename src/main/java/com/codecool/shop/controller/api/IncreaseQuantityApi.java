@@ -37,20 +37,13 @@ public class IncreaseQuantityApi extends HttpServlet {
             System.out.println(e.getMessage());
         }
         String bufferID = buffer.toString().split("\"")[3];
-        System.out.println("cacareGRAVA");
-        System.out.println(bufferID);
-        System.out.println("buffer");
-        System.out.println(buffer);
-        System.out.println(buffer.toString().split("\"")[7]);
-        System.out.println("cacareMAJORA");
+
         String bufferQuantity = buffer.toString().split("\"")[7];
-        System.out.println(bufferQuantity);
-        System.out.println("CACAREgrava2");
+
 
 
         for (Item item : cartProducts) {
-            System.out.println("cacare3");
-            if (item.getId()==Integer.parseInt(bufferID)){
+            if (item.getProductId()==Integer.parseInt(bufferID)){
                 item.setQuantity(Integer.parseInt(bufferQuantity));
             }
         }

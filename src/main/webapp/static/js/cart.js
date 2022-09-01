@@ -42,6 +42,7 @@ const increaseQuantityBtnHandler = () => {
         increaseButton.addEventListener("click", async () => {
             let prodId = increaseButton.getAttribute("data-id")
             let quantities = document.querySelectorAll(".quantity")
+
             for (const quantity of quantities) {
                 let newQuantity = (parseInt(quantity.innerHTML) + 1).toString()
                 if (quantity.getAttribute("data-id") === prodId) {
@@ -105,6 +106,7 @@ const decreaseQuantityBtnHandler = () => {
                             },
                             body: JSON.stringify(dataToBePosted)
                         });
+
                         quantity.innerHTML = (parseInt(quantity.innerHTML) - 1).toString();
                     }
                 }
