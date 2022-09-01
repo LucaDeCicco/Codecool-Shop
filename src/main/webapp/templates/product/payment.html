@@ -33,7 +33,43 @@
 
 <body>
 <div id="mainDiv" >
+  <div class="jumbotron">
+    <h1 class="display-4">Payment Methods</h1>
+    <hr class="my-4">
+    <a class="btn btn-warning btn-lg" role="button" id="cardMethod">Card</a>
+    <a class="btn btn-danger btn-lg" role="button" id="payPalMethod">PayPal</a>
+  </div>
 
+  <div class="jumbotron" id="cardMethodForm" style="display: none">
+    <h1 class="display-4">Card</h1>
+    <hr class="my-4">
+    <form>
+      <div class="form-group">
+        <label>Number of Card</label>
+        <input class="form-control" id="numberOfCard" placeholder="XXXX XXXX XXXX XXXX">
+        <label>Name</label>
+        <input class="form-control" id="nameOfCardHolder" placeholder="LastName FirstName">
+        <label>CVV</label>
+        <input class="form-control" id="cvv" placeholder="CVV">
+      </div>
+      <a type="button" class="btn btn-primary" id="PayFromCard" href="/">Pay</a>
+    </form>
+  </div>
+
+  <div class="jumbotron" id="payPalMethodForm" style="display: none">
+    <h1 class="display-4">PayPal</h1>
+    <hr class="my-4">
+    <form>
+      <div class="form-group">
+        <label>UserName</label>
+        <input class="form-control" id="payPalUserName" placeholder="yourUserName">
+        <label>Password</label>
+        <input class="form-control" id="payPalPassword" placeholder="*********">
+
+      </div>
+      <a type="button" class="btn btn-primary" id="PayFromPayPal" href="/">Pay</a>
+    </form>
+  </div>
 
 </div>
 
