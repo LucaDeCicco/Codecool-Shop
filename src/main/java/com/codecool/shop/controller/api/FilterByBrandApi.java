@@ -40,8 +40,6 @@ public class FilterByBrandApi extends HttpServlet {
 
         String[] criteriaList = buffer.toString().split("\"");
         String criteria = criteriaList[3];
-        System.out.println("criteria");
-        System.out.println(criteria);
         List<Product>filteredList = filterMem.filterByBrand(criteria);
 
         response.setContentType("application/json");

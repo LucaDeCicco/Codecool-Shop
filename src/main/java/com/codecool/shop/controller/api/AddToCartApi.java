@@ -49,10 +49,8 @@ public class AddToCartApi extends HttpServlet {
                         if (item.getProductId()== product.getId()){
                             added = true;
                             item.setQuantity(item.getQuantity()+1);
-                            System.out.println("e ok");
                         }
                         else {
-                            System.out.println("nu e ok");
                         }
                     }
                 }
@@ -64,8 +62,6 @@ public class AddToCartApi extends HttpServlet {
             }
         }
 
-        System.out.println("futu-i mama ");
-        System.out.println(cartDataStore.getAll());
 
         log(String.valueOf(cart));
         response.setContentType("application/json");

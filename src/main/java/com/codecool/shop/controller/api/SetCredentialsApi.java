@@ -47,13 +47,6 @@ public class SetCredentialsApi extends HttpServlet {
         String zipCode = buffer.toString().split(",")[5].split(":")[1].split("\"")[1];
         String address = buffer.toString().split(",")[6].split(":")[1].split("\"")[1];
 
-//        System.out.println(name);
-//        System.out.println(email);
-//        System.out.println(phoneNumber);
-//        System.out.println(country);
-//        System.out.println(city);
-//        System.out.println(zipCode);
-//        System.out.println(address);
 
         client.setName(name);
         client.setEmail(email);
