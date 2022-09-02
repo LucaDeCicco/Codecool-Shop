@@ -24,6 +24,30 @@ const sortBrandPerfume = () => {
     }
 }
 
+const orderByPrice = () => {
+    let options = document.querySelectorAll('.orderPrice')
+    for (const option of options) {
+        option.addEventListener("click", async () => {
+            let criteria = option.innerText
+            const dataToBePosted = {
+                criteria: criteria
+            };
+            let response = await fetch("/api/orderByPrice", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataToBePosted)
+            });
+
+
+            const filteredProducts = await response.json();
+            await generateHtmlContainerFiltered(filteredProducts)
+            await addCartButtonsHandler()
+        })
+    }
+}
+
 
 const sortMenPerfume = () => {
     let menPerfumeBtn = document.getElementById("menPerfume")
@@ -140,6 +164,7 @@ const init = () => {
     sortMenPerfume()
     sortWomenPerfume()
     sortBrandPerfume()
+    orderByPrice()
 
 }
 
