@@ -1,5 +1,29 @@
 // let URL_API = "localhost:8888";
 
+const sortBrandPerfume = () => {
+    let options = document.querySelectorAll('.option')
+    for (const option of options) {
+        option.addEventListener("click", async () => {
+            let criteria = option.innerText
+            const dataToBePosted = {
+                criteria: criteria
+            };
+            let response = await fetch("/api/filterByBrand", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dataToBePosted)
+            });
+
+
+            const filteredProducts = await response.json();
+            await generateHtmlContainerFiltered(filteredProducts)
+            await addCartButtonsHandler()
+        })
+    }
+}
+
 
 const sortMenPerfume = () => {
     let menPerfumeBtn = document.getElementById("menPerfume")
@@ -115,6 +139,7 @@ const init = () => {
     addCartButtonsHandler()
     sortMenPerfume()
     sortWomenPerfume()
+    sortBrandPerfume()
 
 }
 

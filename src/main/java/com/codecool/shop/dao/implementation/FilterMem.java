@@ -41,4 +41,14 @@ public class FilterMem {
         }
         return filteredList;
     }
+
+    public List<Product> filterByBrand(String criteria) {
+        filteredList = new ArrayList<>();
+        for (Product product : allProducts) {
+            if (Objects.equals(product.getSupplier().getName(), criteria)){
+                filteredList.add(product);
+            }
+        }
+        return filteredList;
+    }
 }
