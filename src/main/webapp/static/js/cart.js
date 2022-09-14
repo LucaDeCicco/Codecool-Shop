@@ -30,8 +30,10 @@ const deleteFromCartBtnHandler = () => {
             let response = await fetch("/api/getTotal")
             const total = await response.json();
             displayTotal.innerHTML = total;
+            checkIfCartEmpty();
         })
     }
+
 
 }
 
@@ -117,7 +119,25 @@ const decreaseQuantityBtnHandler = () => {
             const total = await response.json();
             console.log(total + " Total")
             displayTotal.innerHTML = total;
+            if (total===0){
+                checkIfCartEmpty()
+            }
         })
+    }
+}
+
+
+
+const checkIfCartEmpty = async () => {
+    let responseData = await fetch("/api/getNumberOfProducts")
+    let response = await responseData.json();
+    if (parseInt(response)<1){
+        let page = document.getElementById("mainDiv")
+        page.innerHTML="";
+        page.innerHTML+=`<div style="align-self: center; text-align: center"><h1><strong>Your Cart is Empty :( !</strong></h1></div>`
+        page.innerHTML+=`<a class="btn btn-secondary btn-sm btn-block" href="/" style="width: 25em; height: 5em; align-self: center; align-items: center; margin-left: 50%">
+            <span class="glyphicon glyphicon-share-alt"></span> Continue shopping
+        </a>`
     }
 }
 
@@ -125,11 +145,8 @@ const decreaseQuantityBtnHandler = () => {
 
 
 
-
-
-
-
 const init = () => {
+    checkIfCartEmpty()
     deleteFromCartBtnHandler();
     increaseQuantityBtnHandler();
     decreaseQuantityBtnHandler();

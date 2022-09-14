@@ -67,7 +67,6 @@ const sortMenPerfume = () => {
 
 
         const filteredProducts = await response.json();
-        console.log(filteredProducts)
         await generateHtmlContainerFiltered(filteredProducts)
         await addCartButtonsHandler()
     })
@@ -140,6 +139,9 @@ const addCartButtonsHandler = () => {
     let addToCartButtons = document.querySelectorAll(".addToCart")
     for (const addToCartBtn of addToCartButtons) {
         addToCartBtn.addEventListener("click", async () => {
+
+            let containerOfNrProducts = document.querySelector(".forNumberOfProducts")
+
             let productId = addToCartBtn.getAttribute("data-id")
 
             const dataToBePosted = {
@@ -154,12 +156,35 @@ const addCartButtonsHandler = () => {
                 body: JSON.stringify(dataToBePosted)
             });
 
+
+            containerOfNrProducts.innerHTML=`<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger numberOfProducts">1</span>`
+            let nrOfCartProducts = document.querySelector(".numberOfProducts")
+            let responseData = await fetch("/api/getNumberOfProducts")
+            let response = await responseData.json();
+
+            nrOfCartProducts.innerText = response;
+
         })
     }
 }
 
 
+
+const checkIfNotEmptyCart = async () => {
+    let responseData = await fetch("/api/getNumberOfProducts")
+    let response = await responseData.json();
+
+    if (parseInt(response)>0){
+        let containerOfNrProducts = document.querySelector(".forNumberOfProducts")
+        containerOfNrProducts.innerHTML=`<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger numberOfProducts">1</span>`
+        let nrOfCartProducts = document.querySelector(".numberOfProducts")
+        nrOfCartProducts.innerText = response;
+    }
+
+}
+
 const init = () => {
+    checkIfNotEmptyCart()
     addCartButtonsHandler()
     sortMenPerfume()
     sortWomenPerfume()
