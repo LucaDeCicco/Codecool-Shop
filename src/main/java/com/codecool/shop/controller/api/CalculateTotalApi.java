@@ -28,7 +28,7 @@ public class CalculateTotalApi extends HttpServlet {
 
         response.setContentType("application/json");
         String dataToRespond = String.valueOf(total);
-        System.out.println(dataToRespond);
+        System.out.println(dataToRespond + " Total");
         PrintWriter out = response.getWriter();
         out.println(dataToRespond);
     }

@@ -1,6 +1,8 @@
 .glyphicon {
     margin-right:5px;
 }
+
+
 .thumbnail
 {
     margin-bottom: 20px;
@@ -64,8 +66,36 @@
     color: black;
 }
 
+.carousel{
+    width: 100%;
+    height: 35em;
+}
+
+.carouselImg{
+    width: 100%;
+    height: 35em;
+}
+
 #mainDiv{
-    background-color: black;
+    background-color: #ffffff;
+}
+
+.productsImg{
+    align-self: center;
+}
+
+.cartBtn{
+    margin-right: 5em;
+    height: 5em;
+    width: 5em;
+    align-items: center;
+
+}
+
+.cartBtnImg{
+
+    height: 3em;
+    width: 3em;
 }
 
 

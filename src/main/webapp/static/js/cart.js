@@ -115,6 +115,7 @@ const decreaseQuantityBtnHandler = () => {
             displayTotal.innerHTML=""
             let response = await fetch("/api/getTotal")
             const total = await response.json();
+            console.log(total + " Total")
             displayTotal.innerHTML = total;
         })
     }
