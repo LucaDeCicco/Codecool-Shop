@@ -34,34 +34,27 @@
 <div id="mainDiv" >
     <h1 STYLE="text-align: center">CART</h1>
 
-        <a class="btn btn-secondary btn-sm btn-block" href="/" style="width: 25em; height: 5em">
-            <span class="glyphicon glyphicon-share-alt"></span> Continue shopping
-        </a>
+    <a class="btn btn-secondary btn-sm btn-block" href="/" style="width: 25em; height: 4em; align-self: center; align-items: center; margin-left: 50%">
+        <span class="glyphicon glyphicon-share-alt"></span><h4 style="display: inline-block">Continue shopping</h4>
+    </a>
     <div id="productsContainer" class="container">
         <div id="products" class="row">
             <div th:if="${cart.size() > 0}">
-                <div class="col col-sm-12 col-md-6 col-lg-4" th:each="item,iterStat : ${cart}" th:data-quantity="${item.getQuantity()}" th:data-id="${item.getProductId()}" >
-                    <div class="card" style="width: 200px; height: 500px">
-                        <img style="width: 100px; height: 250px" class="productsImg" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/products/product_' + ${item.getProductId()} + '.jpg'" alt="" />
-                        <div class="card-header">
-                            <h4 class="card-title" th:text="${item.getProduct().name}">Product name</h4>
-                            <p class="card-text" th:text="${item.getProduct().description}">Product description... </p>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-text">
-                                <p class="lead" th:text="${item.getProduct().getPrice()}">100 USD</p>
-                            </div>
-                            <div class="card-text">
-                                <a class="btn btn-success deleteFromCart" th:data-id="${item.getProductId()}" STYLE="color: red">Delete</a>
-                                <p>
-                                    Quantity :
-                                    <a class="btn decreaseQuantity" th:data-id="${item.getProductId()}" STYLE="color: red">-</a>
-                                    <small class="quantity" th:text="${item.getQuantity()}" th:data-id="${item.getProductId()}"></small>
-                                    <a class="btn increaseQuantity" th:data-id="${item.getProductId()}" STYLE="color: green">+</a>
-                                </p>
+                <div class="" th:each="item,iterStat : ${cart}" th:data-quantity="${item.getQuantity()}" th:data-id="${item.getProductId()}" style="margin-left: 3em; border-bottom: solid black">
+                    <span style="display: inline-block">
+                        <img th:attr="src='/static/img/products/product_' + ${item.getProductId()} + '.jpg'" style="height: 4em; width: 2em">
+                        <h4 class="card-title" th:text="${item.getProduct().name}">Product name</h4>
+                        <p class="lead" th:text="${item.getProduct().getPrice()}">100 USD</p>
+                    </span>
+                    <div class="card-text">
+                        <a class="btn btn-success deleteFromCart" th:data-id="${item.getProductId()}" STYLE="color: red">Delete</a>
+                        <p>
+                            Quantity :
+                            <a class="btn decreaseQuantity" th:data-id="${item.getProductId()}" STYLE="color: red">-</a>
+                            <small class="quantity" th:text="${item.getQuantity()}" th:data-id="${item.getProductId()}"></small>
+                            <a class="btn increaseQuantity" th:data-id="${item.getProductId()}" STYLE="color: green">+</a>
+                        </p>
 
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>

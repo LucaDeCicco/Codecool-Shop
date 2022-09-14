@@ -135,8 +135,8 @@ const checkIfCartEmpty = async () => {
         let page = document.getElementById("mainDiv")
         page.innerHTML="";
         page.innerHTML+=`<div style="align-self: center; text-align: center"><h1><strong>Your Cart is Empty :( !</strong></h1></div>`
-        page.innerHTML+=`<a class="btn btn-secondary btn-sm btn-block" href="/" style="width: 25em; height: 5em; align-self: center; align-items: center; margin-left: 50%">
-            <span class="glyphicon glyphicon-share-alt"></span> Continue shopping
+        page.innerHTML+=`<a class="btn btn-secondary btn-sm btn-block" href="/" style="width: 25em; height: 4em; align-self: center; align-items: center; margin-left: 50%">
+             <span class="glyphicon glyphicon-share-alt"></span><h4 style="display: inline-block">Continue shopping</h4>
         </a>`
     }
 }
