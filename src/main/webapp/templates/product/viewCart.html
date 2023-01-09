@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" />
+    <meta name="author" content="Codecool" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <title>Codecool Shop</title>
+
+    <!-- Bootstrap components -->
+    <!-- Latest compiled and minified Jquery -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+    <!--Latest compiled and minified Popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <!-- End of Bootstrap components -->
+
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+
+<body>
+<div id="mainDiv" >
+    <h1 STYLE="text-align: center">CART</h1>
+
+    <a class="btn btn-secondary btn-sm btn-block" href="/" style="width: 25em; height: 4em; align-self: center; align-items: center; margin-left: 50%">
+        <span class="glyphicon glyphicon-share-alt"></span><h4 style="display: inline-block">Continue shopping</h4>
+    </a>
+    <div id="productsContainer" class="container">
+        <div id="products" class="row">
+            <div th:if="${cart.size() > 0}">
+                <div class="" th:each="item,iterStat : ${cart}" th:data-quantity="${item.getQuantity()}" th:data-id="${item.getProductId()}" style="margin-left: 3em; border-bottom: solid black">
+                    <span style="display: inline-block">
+                        <img th:attr="src='/static/img/products/product_' + ${item.getProductId()} + '.jpg'" style="height: 4em; width: 2em">
+                        <h4 class="card-title" th:text="${item.getProduct().name}">Product name</h4>
+                        <p class="lead" th:text="${item.getProduct().getPrice()}">100 USD</p>
+                    </span>
+                    <div class="card-text">
+                        <a class="btn btn-success deleteFromCart" th:data-id="${item.getProductId()}" STYLE="color: red">Delete</a>
+                        <p>
+                            Quantity :
+                            <a class="btn decreaseQuantity" th:data-id="${item.getProductId()}" STYLE="color: red">-</a>
+                            <small class="quantity" th:text="${item.getQuantity()}" th:data-id="${item.getProductId()}"></small>
+                            <a class="btn increaseQuantity" th:data-id="${item.getProductId()}" STYLE="color: green">+</a>
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="jumbotron" style="height: 20em; width: 50em">
+        <h1 class="display-4">TOTAL</h1>
+        <hr class="my-4">
+        <p th:text="${total}" id="total" th:data-total="${total}"></p>
+        <a class="btn btn-primary btn-lg" href="/checkout" role="button">Checkout</a>
+    </div>
+
+
+</div>
+<script src="/static/js/cart.js" defer></script>
+</body>
+</html>
+
+
+
+
