@@ -2,9 +2,12 @@
 
 # About the project
 
-This project was made by my, <b>[Luca De Cicco](https://github.com/LucaDeCicco)</b>.
+This project was made by myself.
 
-It is an online perfume store. A very intuitive site where you can filter according to brand or genre, you can sort according to increasing or decreasing price, these filters will make it easier for you to find the product you are looking for. You can create an account on this online store, and if you are connected to your account, the orders made will be saved in a history that you can see
+It is an online perfume store.  You can filter according to brand or genre and you can sort according to increasing or decreasing price. You can create an account on this online store, and if you are connected to your account, the orders placed will be saved in a history that you can see.
+Backend: Java.
+Frontend: HTML, CSS, JavaScript, Bootstrap.
+Database: PostgreSQL.
 
 ## Features
 
