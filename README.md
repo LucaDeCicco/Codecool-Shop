@@ -5,9 +5,7 @@
 This project was made by myself.
 
 It is an online perfume store.  You can filter according to brand or genre and you can sort according to increasing or decreasing price. You can create an account on this online store, and if you are connected to your account, the orders placed will be saved in a history that you can see.
-Backend: Java.
-Frontend: HTML, CSS, JavaScript, Bootstrap.
-Database: PostgreSQL.
+
 
 ## Features
 
